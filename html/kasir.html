@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Nyawiji Roso</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Work Sans', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #ffffff;
+      color: #252323;
+    }
+
+    /* Login View */
+    .login-wrapper {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 640px;
+      background: #F2F2F2;
+      border: 1px solid #E0D7D7;
+      border-radius: 20px;
+      padding: 46px 64px;
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .login-header h1 {
+      color: #0A3B14;
+      font-size: 42px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 18px;
+      font-weight: 700;
+      color: #000000;
+      margin-bottom: 8px;
+    }
+
+    .std-input {
+      width: 100%;
+      height: 56px;
+      background: #ffffff;
+      border: 1px solid #757272;
+      border-radius: 20px;
+      padding: 0 20px;
+      font-size: 18px;
+      outline: none;
+    }
+
+    .btn-login {
+      width: 100%;
+      height: 60px;
+      margin-top: 10px;
+      background: #0A3B14;
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 700;
+      border: 1px solid #000000;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .back-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 28px;
+      color: #0A3B14;
+      font-size: 18px;
+      text-decoration: none;
+    }
+
+    /* Admin Panel View */
+    #admin-panel {
+      display: none;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 60px;
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      color: #0A3B14;
+      font-size: 30px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 500;
+      color: #252323;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .nav-links a.active {
+      color: #17772A;
+      font-weight: 600;
+    }
+
+    .nav-links a.logout {
+      color: #F51010;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 40px auto 70px;
+      padding: 0 30px;
+    }
+
+    .section-block {
+      margin-bottom: 64px;
+      scroll-margin-top: 110px;
+    }
+
+    .section-title {
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-bottom: 42px;
+    }
+
+    .stat-card {
+      background: #ffffff;
+      border: 1px solid #DCCACA;
+      border-left: 14px solid #0A3B14;
+      border-radius: 20px;
+      padding: 22px 26px;
+    }
+
+    .stat-label {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .stat-value {
+      font-size: 38px;
+      font-weight: 700;
+    }
+
+    .stat-value span {
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    .trx-box {
+      border: 1px solid #9E9292;
+      padding: 22px 20px;
+      overflow-x: auto;
+    }
+
+    .trx-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 20px;
+    }
+
+    .trx-table thead tr {
+      background: #EEE7E7;
+    }
+
+    .trx-table th,
+    .trx-table td {
+      padding: 16px 20px;
+      text-align: left;
+      border-bottom: 2px solid rgba(115, 108, 108, 0.32);
+    }
+
+    .badge-selesai {
+      background: #91F99D;
+      color: #0A3B14;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 6px 26px;
+      border-radius: 30px;
+    }
+
+    .menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn-add {
+      background: #0A3B14;
+      color: #ffffff;
+      font-size: 19px;
+      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: 15px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .menu-table-wrapper {
+      border: 1px solid #000000;
+      border-radius: 15px;
+      padding: 20px;
+      overflow-x: auto;
+    }
+
+    .menu-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 20px;
+    }
+
+    .menu-table th,
+    .menu-table td {
+      border: 1px solid #000000;
+      padding: 12px 16px;
+      text-align: left;
+    }
+
+    .menu-table thead th {
+      background: #F1F1F1;
+    }
+
+    .menu-table tbody tr:nth-child(even) {
+      background: #F1F1F1;
+    }
+
+    .menu-thumb {
+      width: 108px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 6px;
+      background: #e5e5e5;
+    }
+
+    .badge-kategori {
+      background: #B6EAC1;
+      color: #0A2F11;
+      font-size: 18px;
+      padding: 6px 18px;
+      border-radius: 20px;
+    }
+
+    .btn-edit {
+      background: #FFE500;
+      color: #000000;
+      padding: 6px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      border: none;
+      font-size: 17px;
+      margin-right: 6px;
+    }
+
+    .btn-delete {
+      background: #FF0000;
+      color: #ffffff;
+      padding: 6px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      border: none;
+      font-size: 17px;
+    }
+
+    /* Form Edit Menu */
+    #form-edit-section {
+      display: none;
+      background: #F8F9FA;
+      padding: 36px 20px;
+    }
+
+    .edit-card {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 40px 44px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .edit-card * {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .edit-input {
+      width: 100%;
+      padding: 13px 18px;
+      border: 1px solid #E9ECEF;
+      border-radius: 7px;
+      font-size: 18px;
+      outline: none;
+    }
+
+    @media (max-width: 960px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .navbar {
+        flex-direction: column;
+        gap: 14px;
+        padding: 18px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Form Login Admin -->
+  <div id="login-view" class="login-wrapper">
+    <div class="login-card">
+      <div class="login-header">
+        <h1>Nyawiji Roso</h1>
+        <p>Silahkan masuk untuk menggunakan sistem</p>
+      </div>
+
+      <form onsubmit="masukAdmin(event)">
+        <div class="form-group">
+          <label class="form-label">Username</label>
+          <input type="text" class="std-input" placeholder="Masukkan username" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" class="std-input" placeholder="Masukkan password" required>
+        </div>
+
+        <button type="submit" class="btn-login">Masuk</button>
+      </form>
+
+      <a href="index.html" class="back-link">
+        <i class="ri-arrow-left-circle-line" style="font-size: 24px;"></i>
+        <span>Kembali Ke Website</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 2. Panel Dashboard & Data Menu -->
+  <div id="admin-panel">
+    <nav class="navbar">
+      <a href="#dashboard" class="brand">ADMIN NYAWIJI</a>
+      <div class="nav-links">
+        <a href="#dashboard" class="active">Dashboard</a>
+        <a href="#data-menu">Data Menu</a>
+        <a href="index.html">Lihat Website ↗</a>
+        <a onclick="keluarAdmin()" class="logout">
+          <i class="ri-logout-box-r-line"></i> KELUAR
+        </a>
+      </div>
+    </nav>
+
+    <main id="main-admin-content" class="container">
+      <!-- Dashboard Overview -->
+      <section id="dashboard" class="section-block">
+        <h1 class="section-title">Dashboard Overview</h1>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">TOTAL PENDAPATAN</div>
+            <div class="stat-value">Rp 127.000</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">TOTAL TRANSAKSI</div>
+            <div class="stat-value">7 <span>Order</span></div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">TOTAL MENU</div>
+            <div class="stat-value">32 <span>Item</span></div>
+          </div>
+        </div>
+
+        <div class="trx-box">
+          <h2 style="font-size: 26px; font-weight: 600; margin-bottom: 16px;">4 Transaksi Terakhir</h2>
+          <table class="trx-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>WAKTU TRANSAKSI</th>
+                <th>NAMA PELANGGAN</th>
+                <th>TOTAL BELANJA</th>
+                <th>STATUS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#7</td>
+                <td>01 Oct 2026, 16:51</td>
+                <td>alif</td>
+                <td>Rp 12.000</td>
+                <td><span class="badge-selesai">Selesai</span></td>
+              </tr>
+              <tr>
+                <td>#6</td>
+                <td>01 Oct 2026, 13:46</td>
+                <td>Shafa</td>
+                <td>Rp 18.000</td>
+                <td><span class="badge-selesai">Selesai</span></td>
+              </tr>
+              <tr>
+                <td>#5</td>
+                <td>01 Oct 2026, 13:28</td>
+                <td>budi</td>
+                <td>Rp 15.000</td>
+                <td><span class="badge-selesai">Selesai</span></td>
+              </tr>
+              <tr>
+                <td>#4</td>
+                <td>01 Oct 2026, 13:18</td>
+                <td>eni</td>
+                <td>Rp 15.000</td>
+                <td><span class="badge-selesai">Selesai</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Manajemen Data Menu -->
+      <section id="data-menu" class="section-block">
+        <div class="menu-header">
+          <h2>Manajemen Data Menu</h2>
+          <button type="button" class="btn-add" onclick="bukaFormMenu('Tambah Menu Baru', '', 'Makanan', '', '')">
+            + Tambah Menu Baru
+          </button>
+        </div>
+
+        <div class="menu-table-wrapper">
+          <table class="menu-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Gambar</th>
+                <th>Nama Menu</th>
+                <th>Kategori</th>
+                <th>Harga</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><img src="assets/img/mie-goreng.jpg" alt="Mie Goreng Special" class="menu-thumb"></td>
+                <td>Mie Goreng Special</td>
+                <td><span class="badge-kategori">Makanan</span></td>
+                <td>Rp 10.000</td>
+                <td>
+                  <button class="btn-edit" onclick="bukaFormMenu('Edit Data Menu', 'Mie Goreng Special', 'Makanan', '10000', 'Mi goreng special dengan bumbu racikan khas chef.')">Edit</button>
+                  <button class="btn-delete" onclick="alert('Menu dihapus!')">Hapus</button>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><img src="assets/img/roti-maryam.jpg" alt="Roti Maryam" class="menu-thumb"></td>
+                <td>Roti Maryam</td>
+                <td><span class="badge-kategori">Cemilan</span></td>
+                <td>Rp 10.000</td>
+                <td>
+                  <button class="btn-edit" onclick="bukaFormMenu('Edit Data Menu', 'Roti Maryam', 'Cemilan', '10000', 'Roti canai lembut dengan topping cokelat keju')">Edit</button>
+                  <button class="btn-delete" onclick="alert('Menu dihapus!')">Hapus</button>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><img src="assets/img/matcoff.jpg" alt="Matcoff" class="menu-thumb"></td>
+                <td>Matcoff</td>
+                <td><span class="badge-kategori">Minuman</span></td>
+                <td>Rp 15.000</td>
+                <td>
+                  <button class="btn-edit" onclick="bukaFormMenu('Edit Data Menu', 'Matcoff', 'Minuman', '15000', 'Kombinasi unik matcha premium dan espresso')">Edit</button>
+                  <button class="btn-delete" onclick="alert('Menu dihapus!')">Hapus</button>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><img src="assets/img/mix-platter.jpg" alt="Mix Platter" class="menu-thumb"></td>
+                <td>Mix Platter</td>
+                <td><span class="badge-kategori">Cemilan</span></td>
+                <td>Rp 15.000</td>
+                <td>
+                  <button class="btn-edit" onclick="bukaFormMenu('Edit Data Menu', 'Mix Platter', 'Cemilan', '15000', 'Perpaduan sosis, nugget, dan kentang goreng')">Edit</button>
+                  <button class="btn-delete" onclick="alert('Menu dihapus!')">Hapus</button>
+                </td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td><img src="assets/img/matcha-latte.jpg" alt="Matcha latte Ice" class="menu-thumb"></td>
+                <td>Matcha latte Ice</td>
+                <td><span class="badge-kategori">Minuman</span></td>
+                <td>Rp 15.000</td>
+                <td>
+                  <button class="btn-edit" onclick="bukaFormMenu('Edit Data Menu', 'Matcha latte Ice', 'Minuman', '15000', 'Matcha creamy segar disajikan dingin')">Edit</button>
+                  <button class="btn-delete" onclick="alert('Menu dihapus!')">Hapus</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- 3. Form Edit / Tambah Menu -->
+    <section id="form-edit-section">
+      <div class="edit-card">
+        <div style="display: flex; align-items: center; gap: 12px; color: #124C3C; padding-bottom: 16px; border-bottom: 2px solid #E9ECEF; margin-bottom: 24px;">
+          <i class="ri-edit-box-line" style="font-size: 30px;"></i>
+          <h1 id="form-menu-title" style="font-size: 28px; font-weight: 700;">Edit Data Menu</h1>
+        </div>
+
+        <form onsubmit="simpanMenu(event)">
+          <div class="form-group">
+            <label class="form-label" style="font-weight: 600;">Nama Menu</label>
+            <input type="text" id="edit-nama" class="edit-input" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" style="font-weight: 600;">Kategori</label>
+            <select id="edit-kategori" class="edit-input">
+              <option value="Makanan">Makanan</option>
+              <option value="Minuman">Minuman</option>
+              <option value="Cemilan">Cemilan</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" style="font-weight: 600;">Harga (Rp)</label>
+            <input type="number" id="edit-harga" class="edit-input" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" style="font-weight: 600;">Deskripsi Singkat</label>
+            <textarea id="edit-deskripsi" class="edit-input" rows="4" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" style="font-weight: 600;">Ganti Gambar Menu (Opsional)</label>
+            <input type="file" class="edit-input" accept="image/*">
+            <small style="color: #8D959D; display: block; margin-top: 6px;">*Biarkan kosong jika tidak ingin mengganti gambar saat ini.</small>
+          </div>
+
+          <div style="display: flex; gap: 16px; margin-top: 28px;">
+            <button type="submit" style="background: #124C3C; color: #fff; border: none; border-radius: 8px; padding: 14px 32px; font-size: 17px; font-weight: 700; cursor: pointer;">
+              Simpan Perubahan
+            </button>
+            <button type="button" onclick="tutupFormMenu()" style="background: #6C757D; color: #fff; border: none; border-radius: 8px; padding: 14px 32px; font-size: 17px; font-weight: 700; cursor: pointer;">
+              Batal
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function masukAdmin(e) {
+      e.preventDefault();
+      document.getElementById('login-view').style.display = 'none';
+      document.getElementById('admin-panel').style.display = 'block';
+    }
+
+    function keluarAdmin() {
+      document.getElementById('admin-panel').style.display = 'none';
+      document.getElementById('login-view').style.display = 'flex';
+    }
+
+    function bukaFormMenu(judul, nama, kategori, harga, deskripsi) {
+      document.getElementById('form-menu-title').textContent = judul;
+      document.getElementById('edit-nama').value = nama;
+      document.getElementById('edit-kategori').value = kategori;
+      document.getElementById('edit-harga').value = harga;
+      document.getElementById('edit-deskripsi').value = deskripsi;
+
+      document.getElementById('main-admin-content').style.display = 'none';
+      document.getElementById('form-edit-section').style.display = 'block';
+    }
+
+    function tutupFormMenu() {
+      document.getElementById('form-edit-section').style.display = 'none';
+      document.getElementById('main-admin-content').style.display = 'block';
+    }
+
+    function simpanMenu(e) {
+      e.preventDefault();
+      alert('Data menu berhasil disimpan!');
+      tutupFormMenu();
+    }
+  </script>
+
+</body>
+</html>

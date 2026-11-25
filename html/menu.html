@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Nyawiji Roso</title>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Work Sans', sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: #252323;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 60px;
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #0A3B14;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .brand-logo img {
+      height: 60px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 500;
+      color: #252323;
+      transition: color 0.2s;
+    }
+
+    .nav-links a.active {
+      color: #17772A;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #BD6A26;
+    }
+
+    .btn-admin {
+      background: #0A3B14;
+      color: #ffffff !important;
+      padding: 10px 28px;
+      border-radius: 40px;
+    }
+
+    /* Container Menu */
+    .container {
+      max-width: 1300px;
+      margin: 50px auto;
+      padding: 0 24px;
+    }
+
+    .category-title {
+      color: #0A3B14;
+      font-size: 24px;
+      font-weight: 600;
+      display: inline-block;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #FF8400;
+      margin-bottom: 28px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 26px;
+      margin-bottom: 60px;
+    }
+
+    .menu-card {
+      background: #ffffff;
+      border: 1px solid #000000;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .menu-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-bottom: 1px solid #000000;
+      background: #f6f3ee;
+      display: block;
+    }
+
+    .menu-info {
+      padding: 16px;
+      flex: 1;
+    }
+
+    .menu-info h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #000000;
+    }
+
+    .menu-info p {
+      font-size: 14px;
+      color: #333333;
+      line-height: 1.4;
+    }
+
+    .menu-footer {
+      padding: 0 16px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: #0A3B14;
+    }
+
+    @media (max-width: 1024px) {
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .navbar {
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="brand-logo">
+      <img src="images/image 8.png" alt="Logo Nyawiji Roso" onerror="this.style.display='none'">
+      <span>NYAWIJI ROSO</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#story">STORY</a>
+      <a href="menu.html" class="active">MENU</a>
+      <a href="contact.html">CONTACT & ULASAN</a>
+      <a href="kasir.html">KASIR</a>
+      <a href="admin.html" class="btn-admin">ADMIN</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- Kategori Cemilan -->
+    <h2 class="category-title">CEMILAN</h2>
+    <div class="menu-grid">
+      <!-- 1. Kentang Goreng -->
+      <div class="menu-card">
+        <img src="images/menu-1.jpg"
+             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect width=%22400%22 height=%22300%22 fill=%22%23FDF3E7%22/><ellipse cx=%22200%22 cy=%22245%22 rx=%22110%22 ry=%2222%22 fill=%22%23E6D5C3%22/><rect x=%22150%22 y=%2265%22 width=%2216%22 height=%22110%22 rx=%226%22 transform=%22rotate(-12 150 65)%22 fill=%22%23F7B731%22/><rect x=%22175%22 y=%2252%22 width=%2216%22 height=%22120%22 rx=%226%22 transform=%22rotate(-4 175 52)%22 fill=%22%23FA8231%22/><rect x=%22198%22 y=%2248%22 width=%2216%22 height=%22125%22 rx=%226%22 fill=%22%23F7B731%22/><rect x=%22222%22 y=%2255%22 width=%2216%22 height=%22118%22 rx=%226%22 transform=%22rotate(7 222 55)%22 fill=%22%23FED330%22/><rect x=%22242%22 y=%2268%22 width=%2216%22 height=%22105%22 rx=%226%22 transform=%22rotate(14 242 68)%22 fill=%22%23FA8231%22/><path d=%22M140 135 L260 135 L242 238 L158 238 Z%22 fill=%22%23BD6A26%22/><circle cx=%22285%22 cy=%22225%22 r=%2224%22 fill=%22%23FFFFFF%22 stroke=%22%23D1CCC0%22 stroke-width=%223%22/><circle cx=%22285%22 cy=%22225%22 r=%2217%22 fill=%22%23EB3B5A%22/></svg>';"
+             alt="Kentang Goreng">
+        <div class="menu-info">
+          <h3>Kentang Goreng</h3>
+          <p>Kentang goreng renyah disajikan hangat dengan saus pilihan</p>
+        </div>
+        <div class="menu-footer">
+          <span>Rp 12.000</span>
+          <i class="ri-shopping-bag-line"></i>
+        </div>
+      </div>
+
+      <!-- 2. Roti Maryam -->
+      <div class="menu-card">
+        <img src="images/menu-2.jpg"
+             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect width=%22400%22 height=%22300%22 fill=%22%23F9EFE6%22/><ellipse cx=%22200%22 cy=%22185%22 rx=%22135%22 ry=%2265%22 fill=%22%23FFFFFF%22 stroke=%22%23DFD7CE%22 stroke-width=%224%22/><ellipse cx=%22200%22 cy=%22175%22 rx=%2295%22 ry=%2246%22 fill=%22%23E1A140%22/><path d=%22M140 175 Q200 140 260 175 Q200 205 145 170%22 fill=%22none%22 stroke=%22%23B87324%22 stroke-width=%226%22 stroke-linecap=%22round%22/><path d=%22M135 162 Q170 190 200 160 T265 168%22 fill=%22none%22 stroke=%22%234E2A1E%22 stroke-width=%226%22 stroke-linecap=%22round%22/><rect x=%22175%22 y=%22152%22 width=%2218%22 height=%225%22 rx=%222%22 transform=%22rotate(18 175 152)%22 fill=%22%23F9CA24%22/><rect x=%22205%22 y=%22165%22 width=%2218%22 height=%225%22 rx=%222%22 transform=%22rotate(-15 205 165)%22 fill=%22%23F9CA24%22/><rect x=%22185%22 y=%22180%22 width=%2218%22 height=%225%22 rx=%222%22 transform=%22rotate(10 185 180)%22 fill=%22%23F9CA24%22/></svg>';"
+             alt="Roti Maryam">
+        <div class="menu-info">
+          <h3>Roti Maryam</h3>
+          <p>Roti canai lembut dengan topping cokelat keju</p>
+        </div>
+        <div class="menu-footer">
+          <span>Rp 10.000</span>
+          <i class="ri-shopping-bag-line"></i>
+        </div>
+      </div>
+
+      <!-- 3. Mix Platter -->
+      <div class="menu-card">
+        <img src="images/menu-3.jpg"
+             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect width=%22400%22 height=%22300%22 fill=%22%23EDF6EE%22/><rect x=%2275%22 y=%2285%22 width=%22250%22 height=%22140%22 rx=%2222%22 fill=%22%23C48B5A%22/><rect x=%22100%22 y=%22110%22 width=%2270%22 height=%2220%22 rx=%2210%22 transform=%22rotate(-15 100 110)%22 fill=%22%23D64541%22/><rect x=%22110%22 y=%22138%22 width=%2270%22 height=%2220%22 rx=%2210%22 transform=%22rotate(-10 110 138)%22 fill=%22%23C0392B%22/><rect x=%22205%22 y=%22105%22 width=%2242%22 height=%2232%22 rx=%2212%22 fill=%22%23E67E22%22/><rect x=%22255%22 y=%22115%22 width=%2242%22 height=%2232%22 rx=%2212%22 fill=%22%23F39C12%22/><rect x=%22115%22 y=%22180%22 width=%2285%22 height=%2212%22 rx=%225%22 fill=%22%23F7CA18%22/><rect x=%22125%22 y=%22196%22 width=%2285%22 height=%2212%22 rx=%225%22 fill=%22%23F4D03F%22/><circle cx=%22265%22 cy=%22185%22 r=%2220%22 fill=%22%23EB3B5A%22 stroke=%22%23FFFFFF%22 stroke-width=%224%22/></svg>';"
+             alt="Mix Platter">
+        <div class="menu-info">
+          <h3>Mix Platter</h3>
+          <p>Perpaduan sosis, nugget, dan kentang goreng</p>
+        </div>
+        <div class="menu-footer">
+          <span>Rp 15.000</span>
+          <i class="ri-shopping-bag-line"></i>
+        </div>
+      </div>
+
+      <!-- 4. Mie Goreng Special -->
+      <div class="menu-card">
+        <img src="images/menu-4.jpg"
+             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect width=%22400%22 height=%22300%22 fill=%22%23FDF5E6%22/><path d=%22M105 145 C105 225 295 225 295 145 Z%22 fill=%22%230A3B14%22/><ellipse cx=%22200%22 cy=%22145%22 rx=%2295%22 ry=%2232%22 fill=%22%23F39C12%22/><path d=%22M130 142 Q165 125 200 142 T270 142%22 fill=%22none%22 stroke=%22%23D35400%22 stroke-width=%226%22 stroke-linecap=%22round%22/><ellipse cx=%22215%22 cy=%22135%22 rx=%2236%22 ry=%2220%22 fill=%22%23FFFFFF%22/><circle cx=%22218%22 cy=%22135%22 r=%2211%22 fill=%22%23F1C40F%22/><circle cx=%22155%22 cy=%22135%22 r=%2210%22 fill=%22%2327AE60%22/><line x1=%22120%22 y1=%2282%22 x2=%22285%22 y2=%22112%22 stroke=%22%238E5B32%22 stroke-width=%226%22 stroke-linecap=%22round%22/><line x1=%22120%22 y1=%2298%22 x2=%22285%22 y2=%22118%22 stroke=%22%238E5B32%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>';"
+             alt="Mie Goreng Special">
+        <div class="menu-info">
+          <h3>Mie Goreng Special</h3>
+          <p>Mi goreng bumbu racikan khas dengan topping telur</p>
+        </div>
+        <div class="menu-footer">
+          <span>Rp 10.000</span>
+          <i class="ri-shopping-bag-line"></i>
+        </div>
+      </div>
+
+      <!-- 5. Cireng Rujak -->
+      <div class="menu-card">
+        <img src="images/menu-5.jpg"
+             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect width=%22400%22 height=%22300%22 fill=%22%23FDECE4%22/><ellipse cx=%22200%22 cy=%22190%22 rx=%22135%22 ry=%2260%22 fill=%22%23FFFFFF%22 stroke=%22%23E2D6CE%22 stroke-width=%224%22/><ellipse cx=%22155%22 cy=%22168%22 rx=%2236%22 ry=%2222%22 fill=%22%23F7F1E3%22 stroke=%22%23D4AC6E%22 stroke-width=%224%22/><ellipse cx=%22205%22 cy=%22152%22 rx=%2236%22 ry=%2222%22 fill=%22%23F7F1E3%22 stroke=%22%23D4AC6E%22 stroke-width=%224%22/><ellipse cx=%22185%22 cy=%22195%22 rx=%2238%22 ry=%2222%22 fill=%22%23F7F1E3%22 stroke=%22%23D4AC6E%22 stroke-width=%224%22/><circle cx=%22258%22 cy=%22185%22 r=%2228%22 fill=%22%23FFFFFF%22 stroke=%22%23D1CCC0%22 stroke-width=%223%22/><circle cx=%22258%22 cy=%22185%22 r=%2221%22 fill=%22%235D2E16%22/></svg>';"
+             alt="Cireng Rujak">
+        <div class="menu-info">
+          <h3>Cireng Rujak</h3>
+          <p>Cireng gurih renyah dengan sambal rujak pedas manis</p>
+        </div>
+        <div class="menu-footer">
+          <span>Rp 10.000</span>
+          <i class="ri-shopping-bag-line"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kategori Minuman -->
+    <h2 class="category-title">MINUMAN</h2>
+    <div class="menu-grid">
+      <!-- 6. Butterscotch -->
+      <div class="menu-card">
+        <img src="images/menu-6.jpg"
+             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect width=%22400%22 height=%22300%22 fill=%22%23F6ECE2%22/><line x1=%22220%22 y1=%2242%22 x2=%22205%22 y2=%22105%22 stroke=%22%230A3B14%22 stroke-width=%228%22 stroke-linecap=%22round%22/><path d=%22M150 95 L250 95 L236 245 L164 245 Z%22 fill=%22%23FFF8F0%22 stroke=%22%23C8B8A6%22 stroke-width=%224%22/><path d=%22M155 135 L245 135 L236 245 L164 245 Z%22 fill=%22%23D9822B%22/><path d=%22M150 95 L250 95 L245 135 L155 135 Z%22 fill=%22%235C3317%22/><rect x=%22174%22 y=%22112%22 width=%2222%22 height=%2222%22 rx=%224%22 fill=%22%23FFFFFF%22 opacity=%220.65%22/><rect x=%22204%22 y=%22118%22 width=%2222%22 height=%2222%22 rx=%224%22 fill=%22%23FFFFFF%22 opacity=%220.65%22/></svg>';"
+             alt="Butterscotch">
+        <div class="menu-info">
+          <h3>Butterscotch</h3>
+          <p>Es kopi susu rasa butterscotch</p>
+        </div>
+        <div class="menu-footer">
+          <span>Rp 15.000</span>
+          <i class="ri-shopping-bag-line"></i>
+        </div>
+      </div>
+
+      <!-- 7. Aren Shake -->
+      <div class="menu-card">
+        <img src="images/menu-7.jpg"
+             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect width=%22400%22 height=%22300%22 fill=%22%23F5EFEA%22/><line x1=%22185%22 y1=%2242%22 x2=%22198%22 y2=%22105%22 stroke=%22%23BD6A26%22 stroke-width=%228%22 stroke-linecap=%22round%22/><path d=%22M150 95 L250 95 L236 245 L164 245 Z%22 fill=%22%23FFFFFF%22 stroke=%22%23C8B8A6%22 stroke-width=%224%22/><path d=%22M160 198 L240 198 L236 245 L164 245 Z%22 fill=%22%234E2612%22/><path d=%22M150 95 L250 95 L246 135 L154 135 Z%22 fill=%22%238B5A2B%22/><rect x=%22182%22 y=%22120%22 width=%2224%22 height=%2224%22 rx=%224%22 fill=%22%23F1ECE6%22/></svg>';"
+             alt="Aren Shake">
+        <div class="menu-info">
+          <h3>Aren Shake</h3>
+          <p>Perpaduan espresso dan gula aren asli Nusantara</p>
+        </div>
+        <div class="menu-footer">
+          <span>Rp 10.000</span>
+          <i class="ri-shopping-bag-line"></i>
+        </div>
+      </div>
+
+      <!-- 8. Matcoff -->
+      <div class="menu-card">
+        <img src="images/menu-8.jpg"
+             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect width=%22400%22 height=%22300%22 fill=%22%23EEF5EE%22/><line x1=%22225%22 y1=%2242%22 x2=%22208%22 y2=%22105%22 stroke=%22%230A3B14%22 stroke-width=%228%22 stroke-linecap=%22round%22/><path d=%22M150 95 L250 95 L236 245 L164 245 Z%22 fill=%22%23FFFFFF%22 stroke=%22%23B8C7B9%22 stroke-width=%224%22/><path d=%22M158 175 L242 175 L236 245 L164 245 Z%22 fill=%22%235C9E48%22/><path d=%22M150 95 L250 95 L246 132 L154 132 Z%22 fill=%22%233E2215%22/><rect x=%22176%22 y=%22115%22 width=%2222%22 height=%2222%22 rx=%224%22 fill=%22%23FFFFFF%22 opacity=%220.65%22/></svg>';"
+             alt="Matcoff">
+        <div class="menu-info">
+          <h3>Matcoff</h3>
+          <p>Kombinasi unik matcha premium dan espresso</p>
+        </div>
+        <div class="menu-footer">
+          <span>Rp 15.000</span>
+          <i class="ri-shopping-bag-line"></i>
+        </div>
+      </div>
+
+      <!-- 9. Matcha Latte Ice -->
+      <div class="menu-card">
+        <img src="images/menu-9.jpg"
+             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect width=%22400%22 height=%22300%22 fill=%22%23EAF5EC%22/><line x1=%22182%22 y1=%2242%22 x2=%22198%22 y2=%22105%22 stroke=%22%230A3B14%22 stroke-width=%228%22 stroke-linecap=%22round%22/><path d=%22M150 95 L250 95 L236 245 L164 245 Z%22 fill=%22%236AB04C%22 stroke=%22%2395B89A%22 stroke-width=%224%22/><path d=%22M156 155 Q200 185 244 155 L236 245 L164 245 Z%22 fill=%22%23BADC58%22 opacity=%220.55%22/><rect x=%22175%22 y=%22112%22 width=%2222%22 height=%2222%22 rx=%224%22 fill=%22%23FFFFFF%22 opacity=%220.75%22/><rect x=%22205%22 y=%22122%22 width=%2222%22 height=%2222%22 rx=%224%22 fill=%22%23FFFFFF%22 opacity=%220.75%22/></svg>';"
+             alt="Matcha Latte Ice">
+        <div class="menu-info">
+          <h3>Matcha Latte Ice</h3>
+          <p>Matcha creamy segar disajikan dingin</p>
+        </div>
+        <div class="menu-footer">
+          <span>Rp 15.000</span>
+          <i class="ri-shopping-bag-line"></i>
+        </div>
+      </div>
+
+      <!-- 10. Es Teh Lecy -->
+      <div class="menu-card">
+        <img src="images/menu-10.jpg"
+             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect width=%22400%22 height=%22300%22 fill=%22%23FEF5E7%22/><line x1=%22225%22 y1=%2242%22 x2=%22206%22 y2=%22105%22 stroke=%22%23BD6A26%22 stroke-width=%228%22 stroke-linecap=%22round%22/><path d=%22M150 95 L250 95 L236 245 L164 245 Z%22 fill=%22%23E67E22%22 stroke=%22%23D0B49F%22 stroke-width=%224%22/><circle cx=%22186%22 cy=%22212%22 r=%2216%22 fill=%22%23FFFFFF%22/><circle cx=%22214%22 cy=%22216%22 r=%2215%22 fill=%22%23FDF2E9%22/><rect x=%22176%22 y=%22114%22 width=%2222%22 height=%2222%22 rx=%224%22 fill=%22%23FFFFFF%22 opacity=%220.6%22/><ellipse cx=%22202%22 cy=%22104%22 rx=%2214%22 ry=%227%22 fill=%22%2327AE60%22/></svg>';"
+             alt="Es Teh Lecy">
+        <div class="menu-info">
+          <h3>Es Teh Lecy</h3>
+          <p>Teh seduh segar dengan sirup dan buah leci</p>
+        </div>
+        <div class="menu-footer">
+          <span>Rp 15.000</span>
+          <i class="ri-shopping-bag-line"></i>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
